@@ -1,3 +1,8 @@
 from django.contrib import admin
+from .models import *
 
-# Register your models here.
+admin.site.register(Destino)
+admin.site.register(Destino_tipo)
+admin.site.register(Destino_dificultad)
+admin.site.register(Despartamento)
+admin.site.register(Album)
