@@ -12,6 +12,13 @@ class Destino_dificultad(models.Model):
 
     def __str__(self):
         return self.dificultad
+    
+class Despartamento(models.Model):
+    departamento = models.CharField(max_length=64)
+    localidad = models.CharField(max_length=128)
+
+    def __str__(self):
+        return self.departamento
 
 class Destino(models.Model):
 
@@ -34,6 +41,7 @@ class Destino(models.Model):
     tiempo = models.CharField(max_length=64, null=True, blank=True)
     estado = models.IntegerField(choices=status.choices, null=True, blank=True)
     posicion = models.IntegerField(null=True, blank=True)
+    departamento = models.ForeignKey(Despartamento, on_delete=models.SET_NULL, null=True, blank=True)
 
     fecha_creado = models.DateTimeField(auto_now_add=True, null=True)
     fecha_modificado = models.DateTimeField(auto_now=True, null=True)
