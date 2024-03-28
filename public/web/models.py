@@ -14,6 +14,11 @@ class Destino_dificultad(models.Model):
         return self.dificultad
 
 class Destino(models.Model):
+
+    class status(models.IntegerChoices):
+        DESHABILITADO = 0,
+        HABILITADO = 1,
+
     nombre = models.CharField(max_length=255)
     foto_portada = models.CharField(max_length=255)
     mapa = models.CharField(max_length=512)
@@ -27,6 +32,7 @@ class Destino(models.Model):
     distancia = models.CharField(max_length=64, null=True, blank=True)
     desnivel = models.CharField(max_length=64, null=True, blank=True)
     tiempo = models.CharField(max_length=64, null=True, blank=True)
+    estado = models.IntegerField(choices=status.choices, null=True, blank=True)
 
     fecha_creado = models.DateTimeField(auto_now_add=True, null=True)
     fecha_modificado = models.DateTimeField(auto_now=True, null=True)
