@@ -33,6 +33,7 @@ class Destino(models.Model):
     desnivel = models.CharField(max_length=64, null=True, blank=True)
     tiempo = models.CharField(max_length=64, null=True, blank=True)
     estado = models.IntegerField(choices=status.choices, null=True, blank=True)
+    posicion = models.IntegerField(null=True, blank=True)
 
     fecha_creado = models.DateTimeField(auto_now_add=True, null=True)
     fecha_modificado = models.DateTimeField(auto_now=True, null=True)
